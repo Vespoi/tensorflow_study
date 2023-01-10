@@ -79,8 +79,6 @@ tensorboard = TensorBoard( log_dir = 'logs/{}'.format( '첫모델' + str( int(ti
 
 model.fit(trainX, trainY, validation_data = (testX, testY), epochs = 3, callbacks = [tensorboard])
 
-model.fit(trainX, trainY, epochs = 10)
-
 #epochs 마다 실제 데이터와의 차이를 평가함 -> overfitting을 줄이는데 도움이 된다.
 #model.fit(trainX, trainY, validation_data=(testX, testY), epochs = 10)
 
