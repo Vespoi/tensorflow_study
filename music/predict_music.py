@@ -55,7 +55,7 @@ music = []
 for i in range(200):
 
     predict = model.predict(first_num)
-    predict = np.argmax(predict[0])
+    predict = np.argmax(predict[0]) #가장큰 데이터를 뽑아온다.
     #print(predict)
 
     music.append(predict)
@@ -68,6 +68,7 @@ for i in range(200):
     one_hot_num = tf.one_hot(predict, 31)
 
     #두개의 리스트를 합쳐서 완전한 예측값을 생성함
+    #원래 리스트에서 맨앞의 인덱스를 빼고, 맨뒤에 새로운 인덱스를 추가함
     first_num = np.vstack([ next_num, one_hot_num.numpy() ])
     first_num = tf.expand_dims(first_num, axis = 0)
 
